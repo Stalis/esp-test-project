@@ -17,4 +17,11 @@ menu "WiFi Configuration"
         default 5
         help
             Set the Maximum retry to avoid station reconnecting to the AP unlimited when the AP is really inexistent.
+
+    menu "Child config"
+        config TEST_MY_VALUE
+            string "Test name"
+            default "lol"
+            
+    endmenu
 endmenu
