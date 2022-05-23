@@ -1,5 +1,9 @@
 menu "ST7789 Configuration"
 
+	config TTGO_T_DISPLAY
+		bool "TTGO t-display 1.44 inch"
+		default true
+
 	config GPIO_RANGE_MAX
 		int
 		default 33 if IDF_TARGET_ESP32
@@ -10,6 +14,7 @@ menu "ST7789 Configuration"
 	config WIDTH
 		int "SCREEN WIDTH"
 		range 0 999
+		default 135 if TTGO_T_DISPLAY
 		default 240
 		help
 			The width resolution of the screen.
@@ -17,6 +22,7 @@ menu "ST7789 Configuration"
 	config HEIGHT
 		int "SCREEN HEIGHT"
 		range 0 999
+		default 240 if TTGO_T_DISPLAY
 		default 240
 		help
 			The height resolution of the screen.
@@ -24,6 +30,7 @@ menu "ST7789 Configuration"
 	config OFFSETX
 		int "GRAM X OFFSET"
 		range 0 99
+		default 52 if TTGO_T_DISPLAY
 		default 0
 		help
 			When your TFT have offset(X), set it.
@@ -31,6 +38,7 @@ menu "ST7789 Configuration"
 	config OFFSETY
 		int "GRAM Y OFFSET"
 		range 0 99
+		default 40 if TTGO_T_DISPLAY
 		default 0
 		help
 			When your TFT have offset(Y), set it.
@@ -38,6 +46,7 @@ menu "ST7789 Configuration"
 	config MOSI_GPIO
 		int "MOSI GPIO number"
 		range 0 GPIO_RANGE_MAX
+		default 19 if TTGO_T_DISPLAY
 		default 23 if IDF_TARGET_ESP32
 		default 35 if IDF_TARGET_ESP32S2
 		default 35 if IDF_TARGET_ESP32S3
@@ -51,6 +60,7 @@ menu "ST7789 Configuration"
 	config SCLK_GPIO
 		int "SCLK GPIO number"
 		range 0 GPIO_RANGE_MAX
+		default 18 if TTGO_T_DISPLAY
 		default 18 if IDF_TARGET_ESP32
 		default 36 if IDF_TARGET_ESP32S2
 		default 36 if IDF_TARGET_ESP32S3
@@ -64,6 +74,7 @@ menu "ST7789 Configuration"
 	config CS_GPIO
 		int "CS GPIO number"
 		range -1 GPIO_RANGE_MAX
+		default 5 if TTGO_T_DISPLAY
 		default -1 if IDF_TARGET_ESP32
 		default -1 if IDF_TARGET_ESP32S2
 		default -1 if IDF_TARGET_ESP32S3
@@ -78,6 +89,7 @@ menu "ST7789 Configuration"
 	config DC_GPIO
 		int "DC GPIO number"
 		range 0 GPIO_RANGE_MAX
+		default 16 if TTGO_T_DISPLAY
 		default 27 if IDF_TARGET_ESP32
 		default 37 if IDF_TARGET_ESP32S2
 		default 40 if IDF_TARGET_ESP32S3
@@ -91,6 +103,7 @@ menu "ST7789 Configuration"
 	config RESET_GPIO
 		int "RESET GPIO number"
 		range 0 GPIO_RANGE_MAX
+		default 23 if TTGO_T_DISPLAY
 		default 33 if IDF_TARGET_ESP32
 		default 38 if IDF_TARGET_ESP32S2
 		default 41 if IDF_TARGET_ESP32S3
@@ -104,6 +117,7 @@ menu "ST7789 Configuration"
 	config BL_GPIO
 		int "BACKLIGHT GPIO number"
 		range -1 GPIO_RANGE_MAX
+		default 4 if TTGO_T_DISPLAY
 		default 32 if IDF_TARGET_ESP32
 		default 33 if IDF_TARGET_ESP32S2
 		default 33 if IDF_TARGET_ESP32S3
