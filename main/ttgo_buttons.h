@@ -1,10 +1,10 @@
 #pragma once
 
+#include "iot_button.h"
+
 #ifdef __cplusplus
 extern "C" {
 #endif
-
-#include "iot_button.h"
 
 void init_buttons(int32_t left_gpio_pin, int32_t right_gpio_pin);
 
